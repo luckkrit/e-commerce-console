@@ -1,6 +1,5 @@
 package menu.state.admin;
 
-import app.AppStore;
 import menu.MenuContext;
 import menu.state.MenuState;
 import menu.state.main.AdminMenu;
@@ -13,10 +12,9 @@ public class RemoveProductMenu extends MenuState {
     public void show(MenuContext menuContext) {
         clearScreen();
         String question = getMenuStringFromFile("menu/remove_product.txt");
-        question = question.replace("{{total_products}}", String.format("%d", AppStore.getInstance()
-                .getProductRepository().getProducts().size()));
+        question = question.replace("{{total_products}}", String.format("%d", menuContext.getProductRepository().getProducts().size()));
         StringBuilder productsBuilder = new StringBuilder();
-        for (Product product : AppStore.getInstance().getProductRepository().getProducts()) {
+        for (Product product : menuContext.getProductRepository().getProducts()) {
             productsBuilder.append(String.format("-   id: %d\n    name: %s\n", product.getId(), product.getName()));
         }
         question = question.replace("{{products}}", productsBuilder);
@@ -37,7 +35,7 @@ public class RemoveProductMenu extends MenuState {
                 case "a":
                     System.out.print("Please fill product id > ");
                     String productId = keyboardScanner.next();
-                    Product findProduct = AppStore.getInstance().getProductRepository().getProduct(Integer.parseInt(productId));
+                    Product findProduct = menuContext.getProductRepository().getProduct(Integer.parseInt(productId));
                     if (findProduct == null) {
                         System.out.println("Product not found!");
                         System.out.println(question);
@@ -57,7 +55,7 @@ public class RemoveProductMenu extends MenuState {
                         System.out.println(question);
                         break;
                     }
-                    AppStore.getInstance().getProductRepository().removeProduct(this.product.getId());
+                    menuContext.getProductRepository().removeProduct(this.product.getId());
                     this.product = new Product();
                     isAnswer = true;
                     break;

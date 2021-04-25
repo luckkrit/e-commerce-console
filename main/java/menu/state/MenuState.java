@@ -33,6 +33,12 @@ public abstract class MenuState implements IMenu {
         return headerString.replace("{{content}}", bodyString);
     }
 
+
+    protected String getStringFormFile(String fileName) {
+        InputStream body = getFileFromResourceAsStream(fileName);
+        return getInputStreamAsString(body);
+    }
+
     protected void printMenu(String fileName) {
         InputStream header = getFileFromResourceAsStream("menu/menu_template.txt");
         InputStream body = getFileFromResourceAsStream(fileName);

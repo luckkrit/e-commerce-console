@@ -1,16 +1,21 @@
 package app;
 
-import repository.ProductRepository;
+import component.DaggerMenuContextComponent;
+import component.MenuContextComponent;
+import menu.MenuContext;
+
+import javax.inject.Inject;
 
 public final class AppStore {
     // static variable single_instance of type Singleton
     private static AppStore instance = null;
 
-    private final ProductRepository productRepository;
+    @Inject
+    MenuContext menuContext;
 
-    // private constructor restricted to this class itself
-    private AppStore() {
-        productRepository = new ProductRepository();
+    public AppStore() {
+        MenuContextComponent menuContextComponent = DaggerMenuContextComponent.create();
+        menuContextComponent.inject(this);
     }
 
     // static method to create instance of Singleton class
@@ -21,7 +26,8 @@ public final class AppStore {
         return instance;
     }
 
-    public ProductRepository getProductRepository() {
-        return productRepository;
+    public void showMenu() {
+        this.menuContext.showMenu();
     }
+
 }

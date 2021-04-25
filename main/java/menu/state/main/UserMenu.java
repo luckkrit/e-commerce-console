@@ -10,16 +10,13 @@ import menu.state.user.ViewProductMenu;
 public class UserMenu extends MenuState {
     @Override
     public void show(MenuContext menuContext) {
-        String question = "Shopping Menu\n" +
-                "    a. View Products\n" +
-                "    b. View Cart\n" +
-                "    c. Remove Cart\n" +
-                "    d. Checkout\n" +
-                "Press a, b, c, d, back for Back or quit for Quit";
+        clearScreen();
+        String question = getMenuStringFromFile("menu/user_menu.txt");
         System.out.println(question);
         String answer = "";
         boolean isAnswer = false;
         do {
+            System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
             switch (answer) {
                 case BACK:

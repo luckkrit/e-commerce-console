@@ -1,12 +1,12 @@
 --------------------------------------
-Total products: {{total_products}}
+Total cart items: {{total_cart_items}}
 --------------------------------------
 
-List of products:
+List of cart items:
 
-{{products}}
+{{carts}}
 
 --------------------------------------
-Add Cart
+Remove cart item
 --------------------------------------
-type 'a'      Fill id of product.
+type 'a'      Remove Cart Item.

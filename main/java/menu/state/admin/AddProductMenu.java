@@ -1,22 +1,23 @@
 package menu.state.admin;
 
-import app.AppStore;
 import menu.MenuContext;
 import menu.state.MenuState;
 import menu.state.main.AdminMenu;
 import model.Product;
 
 public class AddProductMenu extends MenuState {
+
+
     private Product product = new Product();
 
     @Override
     public void show(MenuContext menuContext) {
         clearScreen();
         String question = getMenuStringFromFile("menu/add_product.txt");
-        question = question.replace("{{total_products}}", String.format("%d", AppStore.getInstance()
-                .getProductRepository().getProducts().size()));
+        question = question.replace("{{total_products}}", String.format("%d", menuContext.getProductRepository()
+                .getProducts().size()));
         StringBuilder productsBuilder = new StringBuilder();
-        for (Product product : AppStore.getInstance().getProductRepository().getProducts()) {
+        for (Product product : menuContext.getProductRepository().getProducts()) {
             productsBuilder.append(String.format("-   id: %d\n    name: %s\n", product.getId(), product.getName()));
         }
         question = question.replace("{{products}}", productsBuilder);
@@ -47,7 +48,7 @@ public class AddProductMenu extends MenuState {
                         System.out.println(question);
                         break;
                     }
-                    AppStore.getInstance().getProductRepository().addProduct(this.product);
+                    menuContext.getProductRepository().addProduct(this.product);
                     this.product = new Product();
                     isAnswer = true;
                     break;

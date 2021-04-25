@@ -1,12 +1,15 @@
 --------------------------------------
-Total products: {{total_products}}
+Total cart items: {{total_cart_items}}
 --------------------------------------
 
-List of products:
+List of cart items:
 
-{{products}}
+{{carts}}
 
 --------------------------------------
-Add Cart
+Shipping Address
 --------------------------------------
-type 'a'      Fill id of product.
+
+{{address}}
+
+type 'a'      Fill address.
