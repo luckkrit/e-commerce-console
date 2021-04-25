@@ -1,0 +1,3 @@
+What do you want?
+type 'a'      Shopping
+type 'b'      Manage Store

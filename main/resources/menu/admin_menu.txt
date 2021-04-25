@@ -1,0 +1,4 @@
+* This menu is for Admin, use at your own risk. *
+
+type 'a'      Add product
+type 'b'      Remove product
