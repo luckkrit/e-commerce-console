@@ -1,0 +1,10 @@
+--------------------------------------
+Confirm add product
+--------------------------------------
+
+Product id:   {{product.id}}
+Product name: {{product.name}}
+
+Are you sure?
+type 'y'      OK
+type 'n'      Cancel

@@ -1,0 +1,15 @@
+--------------------------------------
+Total cart items: {{total_cart_items}}
+--------------------------------------
+
+List of cart items:
+
+{{carts}}
+
+--------------------------------------
+Shipping Address
+--------------------------------------
+
+{{address}}
+
+type 'a'      Fill address.

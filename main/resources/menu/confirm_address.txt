@@ -1,0 +1,9 @@
+--------------------------------------
+Confirm address
+--------------------------------------
+
+Address: {{address}}
+
+Are you sure?
+type 'y'      OK
+type 'n'      Cancel

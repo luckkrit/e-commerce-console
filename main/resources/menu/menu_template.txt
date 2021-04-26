@@ -1,0 +1,8 @@
+#######################################
+#        Welcome to our store!        #
+#######################################
+
+{{content}}
+type 'back'   for back to previous menu.
+type 'quit'   for quit program.
+

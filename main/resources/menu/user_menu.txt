@@ -1,0 +1,6 @@
+* This menu is for Admin, use at your own risk. *
+
+type 'a'      Add cart
+type 'b'      View cart
+type 'c'      Remove cart
+type 'd'      Checkout
