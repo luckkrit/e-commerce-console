@@ -1,6 +1,7 @@
 package menu.state.user;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.main.UserMenu;
 import model.Product;
@@ -25,15 +26,16 @@ public class ViewProductMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new UserMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     System.out.print("Please fill product id > ");
                     String productId = keyboardScanner.next();
                     String confirmAddCartString = getMenuStringFromFile("menu/confirm_add_cart.txt");
@@ -58,7 +60,7 @@ public class ViewProductMenu extends MenuState {
                     confirmAddCartString = confirmAddCartString.replace("{{product.name}}", product.getName());
                     System.out.println(confirmAddCartString);
                     break;
-                case "y":
+                case y:
                     if (product.getId() == 0) {
                         System.out.println("Please select product!");
                         System.out.println(question);
@@ -68,7 +70,7 @@ public class ViewProductMenu extends MenuState {
                     this.product = new Product();
                     isAnswer = true;
                     break;
-                case "n":
+                case n:
                     System.out.println(question);
                     break;
                 default:

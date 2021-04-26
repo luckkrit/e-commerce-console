@@ -1,6 +1,7 @@
 package menu.state.admin;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.main.AdminMenu;
 import model.Product;
@@ -27,22 +28,23 @@ public class AddProductMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new AdminMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     System.out.print("Please fill product name > ");
                     String productName = keyboardScanner.next();
                     this.product.setName(productName);
                     String confirmAddProductString = getMenuStringFromFile("menu/confirm_add_product.txt");
                     System.out.println(confirmAddProductString.replace("{{product.name}}", productName));
                     break;
-                case "y":
+                case y:
                     if (product.getName() == null) {
                         System.out.println("Product name is empty!");
                         System.out.println(question);
@@ -52,7 +54,7 @@ public class AddProductMenu extends MenuState {
                     this.product = new Product();
                     isAnswer = true;
                     break;
-                case "n":
+                case n:
                     System.out.println(question);
                     break;
                 default:

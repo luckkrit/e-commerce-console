@@ -1,6 +1,7 @@
 package menu.state.main;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.admin.AddProductMenu;
 import menu.state.admin.RemoveProductMenu;
@@ -16,19 +17,20 @@ public class AdminMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new MainMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     menuContext.setMenuState(new AddProductMenu());
                     isAnswer = true;
                     break;
-                case "b":
+                case b:
                     menuContext.setMenuState(new RemoveProductMenu());
                     isAnswer = true;
                     break;

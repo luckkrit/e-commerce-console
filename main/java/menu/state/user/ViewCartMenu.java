@@ -1,6 +1,7 @@
 package menu.state.user;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.main.UserMenu;
 import model.Product;
@@ -26,12 +27,13 @@ public class ViewCartMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new UserMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
                 default:

@@ -1,6 +1,7 @@
 package menu.state.user;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.main.AdminMenu;
 import model.Product;
@@ -27,15 +28,16 @@ public class RemoveCartMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new AdminMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     System.out.print("Please fill product id > ");
                     String productId = keyboardScanner.next();
                     try {
@@ -61,7 +63,7 @@ public class RemoveCartMenu extends MenuState {
                     confirmRemoveCartString = confirmRemoveCartString.replace("{{product.id}}", productId);
                     System.out.println(confirmRemoveCartString);
                     break;
-                case "y":
+                case y:
                     if (product.getId() == 0) {
                         System.out.println("Cart not found!");
                         System.out.println(question);
@@ -71,7 +73,7 @@ public class RemoveCartMenu extends MenuState {
                     this.product = new Product();
                     isAnswer = true;
                     break;
-                case "n":
+                case n:
                     System.out.println(question);
                     break;
                 default:

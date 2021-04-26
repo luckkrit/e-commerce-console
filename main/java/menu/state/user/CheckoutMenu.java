@@ -1,6 +1,7 @@
 package menu.state.user;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.main.UserMenu;
 import model.Product;
@@ -15,7 +16,7 @@ public class CheckoutMenu extends MenuState {
     public void show(MenuContext menuContext) {
         clearScreen();
         String question = getMenuStringFromFile("menu/checkout_cart.txt");
-        checkoutForm = getStringFormFile("menu/checkout_form.txt");
+        checkoutForm = getStringFromFile("menu/checkout_form.txt");
         question = question.replace("{{total_cart_items}}", String.format("%d", menuContext.getProductRepository()
                 .getProducts().size()));
         checkoutForm = checkoutForm.replace("{{total_cart_items}}", String.format("%d", menuContext.getProductRepository()
@@ -36,22 +37,23 @@ public class CheckoutMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new UserMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     keyboardScanner.nextLine();
                     System.out.print("Please fill address > ");
                     address = keyboardScanner.nextLine();
                     String confirmAddressString = getMenuStringFromFile("menu/confirm_address.txt");
                     System.out.println(confirmAddressString.replace("{{address}}", address));
                     break;
-                case "y":
+                case y:
                     if (address.length() == 0) {
                         System.out.println("Address is empty!");
                         System.out.println(question);
@@ -73,7 +75,7 @@ public class CheckoutMenu extends MenuState {
                     this.address = "";
                     isAnswer = true;
                     break;
-                case "n":
+                case n:
                     System.out.println(question);
                     break;
                 default:

@@ -20,6 +20,15 @@ public abstract class MenuState implements IMenu {
     public void show(MenuContext menuContext) {
     }
 
+    protected AnswerType getAnswerType(String answer) {
+        AnswerType answerType = null;
+        try {
+            answerType = AnswerType.valueOf(answer);
+        } catch (IllegalArgumentException e) {
+        }
+        return answerType;
+    }
+
     protected String getStringFromFile(String fileName) {
         InputStream body = getFileFromResourceAsStream(fileName);
         return getInputStreamAsString(body);
@@ -31,12 +40,6 @@ public abstract class MenuState implements IMenu {
         String headerString = getInputStreamAsString(header);
         String bodyString = getInputStreamAsString(body);
         return headerString.replace("{{content}}", bodyString);
-    }
-
-
-    protected String getStringFormFile(String fileName) {
-        InputStream body = getFileFromResourceAsStream(fileName);
-        return getInputStreamAsString(body);
     }
 
     protected void printMenu(String fileName) {

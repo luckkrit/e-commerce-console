@@ -1,6 +1,7 @@
 package menu.state.main;
 
 import menu.MenuContext;
+import menu.state.AnswerType;
 import menu.state.MenuState;
 import menu.state.user.CheckoutMenu;
 import menu.state.user.RemoveCartMenu;
@@ -18,27 +19,28 @@ public class UserMenu extends MenuState {
         do {
             System.out.print("> ");
             answer = keyboardScanner.next().toLowerCase();
-            switch (answer) {
-                case BACK:
+            AnswerType answerType = getAnswerType(answer);
+            switch (answerType) {
+                case back:
                     menuContext.setMenuState(new MainMenu());
                     isAnswer = true;
                     break;
-                case QUIT:
+                case quit:
                     System.exit(1);
                     break;
-                case "a":
+                case a:
                     menuContext.setMenuState(new ViewProductMenu());
                     isAnswer = true;
                     break;
-                case "b":
+                case b:
                     menuContext.setMenuState(new ViewCartMenu());
                     isAnswer = true;
                     break;
-                case "c":
+                case c:
                     menuContext.setMenuState(new RemoveCartMenu());
                     isAnswer = true;
                     break;
-                case "d":
+                case d:
                     menuContext.setMenuState(new CheckoutMenu());
                     isAnswer = true;
                     break;
