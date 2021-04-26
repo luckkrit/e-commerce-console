@@ -25,4 +25,8 @@ public class ProductService {
         Optional<Product> productOptional = productRepository.getProducts().stream().filter(p -> p.getId() == productId).findFirst();
         productOptional.ifPresent(product -> productRepository.removeProduct(product));
     }
+
+    @Inject
+    public ProductService() {
+    }
 }
