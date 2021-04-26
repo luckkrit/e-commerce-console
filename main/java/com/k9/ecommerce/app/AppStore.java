@@ -11,6 +11,14 @@ public class AppStore {
         this.productService = productService;
     }
 
+    public ProductService getProductService() {
+        return productService;
+    }
+
+    public CartService getCartService() {
+        return cartService;
+    }
+
     private ProductService productService;
 
     @Inject
