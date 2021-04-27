@@ -11,7 +11,7 @@ public enum Choices {
     static Choices getChoicesFromString(String name) {
         Choices choices = null;
         try {
-            choices = Choices.valueOf(name);
+            choices = Choices.valueOf(name.toUpperCase());
         } catch (IllegalArgumentException ignored) {
 
         }
