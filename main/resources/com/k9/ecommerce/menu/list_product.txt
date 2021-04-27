@@ -6,7 +6,3 @@ List of products:
 
 {{products}}
 
---------------------------------------
-Add Cart
---------------------------------------
-type 'a'      Fill id of product.
