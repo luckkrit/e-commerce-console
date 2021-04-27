@@ -3,6 +3,6 @@
 #######################################
 
 {{content}}
-type 'back'   for back to previous com.k9.menu.
+type 'back'   for back to previous menu.
 type 'quit'   for quit program.
 
