@@ -1,6 +1,7 @@
 package com.k9.ecommerce.product;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Optional;
 
 public class ProductService {
@@ -24,6 +25,10 @@ public class ProductService {
     public void removeProduct(long productId) {
         Optional<Product> productOptional = productRepository.getProducts().stream().filter(p -> p.getId() == productId).findFirst();
         productOptional.ifPresent(product -> productRepository.removeProduct(product));
+    }
+
+    public List<Product> getProducts() {
+        return this.productRepository.getProducts();
     }
 
     @Inject
