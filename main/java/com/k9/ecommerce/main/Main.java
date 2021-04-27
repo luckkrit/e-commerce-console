@@ -9,6 +9,6 @@ public class Main {
         AppStore appStore = new AppStore();
         AppStoreComponent appStoreComponent = DaggerAppStoreComponent.create();
         appStoreComponent.inject(appStore);
-       
+        appStore.showMenu();
     }
 }
