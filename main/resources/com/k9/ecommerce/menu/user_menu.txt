@@ -1,0 +1,4 @@
+type 'a'      Add cart
+type 'b'      View cart
+type 'c'      Remove cart
+type 'd'      Checkout

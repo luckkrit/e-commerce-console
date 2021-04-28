@@ -1,0 +1,8 @@
+--------------------------------------
+Total products: {{total_products}}
+--------------------------------------
+
+List of products:
+
+{{products}}
+
