@@ -1,12 +1,5 @@
 --------------------------------------
-Total products: {{total_products}}
---------------------------------------
-
-List of products:
-
-{{products}}
-
---------------------------------------
 Add Product
 --------------------------------------
-type 'a'      Fill name of product.
+
+Please fill product name:
