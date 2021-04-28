@@ -1,22 +1,37 @@
 package com.k9.ecommerce.command;
 
-import com.k9.ecommerce.app.AppStore;
+import com.k9.ecommerce.component.DaggerMenuNavigatorComponent;
+import com.k9.ecommerce.component.MenuNavigatorComponent;
 import com.k9.ecommerce.menu.Menu;
+import com.k9.ecommerce.menu.MenuNavigator;
+
+import javax.inject.Inject;
 
 public class MenuCommand implements Command {
 
     private Menu menu;
-    private AppStore appStore;
 
-    public MenuCommand(AppStore appStore, Menu menu) {
+    @Inject
+    public void setMenuNavigator(MenuNavigator menuNavigator) {
+        this.menuNavigator = menuNavigator;
+    }
+
+    private MenuNavigator menuNavigator;
+
+    public MenuCommand() {
+        MenuNavigatorComponent menuNavigatorComponent = DaggerMenuNavigatorComponent.create();
+        menuNavigatorComponent.inject(this);
+    }
+
+    public MenuCommand(Menu menu) {
+        this();
         this.menu = menu;
-        this.appStore = appStore;
     }
 
 
     @Override
     public void execute() {
-        this.appStore.setMenu(menu);
-        this.appStore.showMenu();
+        this.menuNavigator.setMenu(menu);
+        this.menuNavigator.showMenu();
     }
 }

@@ -1,12 +1,5 @@
 --------------------------------------
-Total cart items: {{total_cart_items}}
---------------------------------------
-
-List of cart items:
-
-{{carts}}
-
---------------------------------------
 Remove cart item
 --------------------------------------
-type 'a'      Remove Cart Item.
+
+Please fill product id:
