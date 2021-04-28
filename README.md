@@ -2,6 +2,8 @@
 
 Create sample console application made by JAVA.
 
+Use Dagger2 for DI.
+
 ## Installation
 
 Clone repository [this](https://github.com/luckkrit/e-commerce-console).
