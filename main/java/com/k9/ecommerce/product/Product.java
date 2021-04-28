@@ -8,7 +8,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("- id: %d\n  name: %s\n", id, name);
+        return String.format("- Id: %d\n  Name: %s\n", id, name);
     }
 
     private String name;
