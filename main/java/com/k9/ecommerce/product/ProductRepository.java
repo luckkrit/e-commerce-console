@@ -3,9 +3,11 @@ package com.k9.ecommerce.product;
 import lombok.Data;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
 @Data
 public class ProductRepository {
     private List<Product> products = new ArrayList<>();
